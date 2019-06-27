@@ -1,19 +1,22 @@
 package main
 
-import (
-	"fmt"
-	"math"
-)
+import "fmt"
 
-type Vertex struct {
-	X, Y float64
+type Employee struct {
+	Name string
 }
 
-func (v Vertex) Abs() float64 {
-	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+func (e *Employee) UpdateName(newName string) {
+	e.Name = newName
+}
+
+func (e *Employee) PrintName() {
+	fmt.Println(e.Name)
 }
 
 func main() {
-	v := Vertex{3, 4}
-	fmt.Println(v.Abs())
+	var employee Employee
+	employee.Name = "Nikhil"
+	employee.UpdateName("Joey")
+	employee.PrintName()
 }

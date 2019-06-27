@@ -2,20 +2,32 @@ package main
 
 import "fmt"
 
-type I Interface {
-	M()
+type Guitarist interface {
+	playGuitar()
 }
 
-type T struct {
-	S string
+type BassGuitarist struct {
+	Name string
 }
 
-func (t *T) M() { 
-	fmt.Println(t.S)
+type AcousticGuitarist struct {
+	Name string
 }
 
-type F float64
+func (b BassGuitarist) playGuitar() {
+	fmt.Println("%s plays the Bass Guitar\n", b.Name)
+}
 
-func (f F) M(){
-	
+func (b AcousticGuitarist) playGuitar() {
+	fmt.Println("%s plays the Acoustic Guitar\n", b.Name)
+}
+
+func main() {
+	var player BassGuitarist
+	player.Name = "Nikhil"
+	player.playGuitar()
+
+	var player2 AcousticGuitarist
+	player2.Name = "Danial"
+	player2.playGuitar()
 }
